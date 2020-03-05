@@ -15,7 +15,7 @@ async def issue_comment_event(event, gh, *args, **kwargs):
 	# TODO
 	# print(event)
 	url = event.data["issue"]["comments_url"]
-	text = event.data["body"]
+	text = event.data["comment"]["body"]
 	# Get the comment url from the event data
 	# After getting the url, set it to the variable url
 	# and push the changes.
