@@ -22,6 +22,20 @@ async def issue_opened_event(event, gh, *args, **kwargs):
 	message = "Hello There!!"+person
 	await gh.post(url, data={"body": message})
 
+async def pull_request_event(event, gh, *args, **kwargs):
+	"""
+	Event when an issue is opened
+	"""
+	# TODO
+	# print(event)
+	url = event.data["pull_request"]["url"]
+	person = event.data["issue"]["user"]["login"]
+	# Get the comment url from the event data
+	# After getting the url, set it to the variable url
+	# and push the changes.
+	message = "Thank you!!"+person
+	await gh.post(url, data={"body": message})
+
 async def main(request):
 	body = await request.read()
 
