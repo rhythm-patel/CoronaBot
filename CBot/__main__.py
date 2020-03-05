@@ -15,10 +15,11 @@ async def issue_opened_event(event, gh, *args, **kwargs):
 	# TODO
 	# print(event)
 	url = event.data["issue"]["comments_url"]
+	person = event.data["issue"]["user"]["login"]
 	# Get the comment url from the event data
 	# After getting the url, set it to the variable url
 	# and push the changes.
-	message = "Hello There!!"
+	message = "Hello There!!"+person
 	await gh.post(url, data={"body": message})
 
 async def main(request):
