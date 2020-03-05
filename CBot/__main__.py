@@ -24,8 +24,8 @@ async def issue_opened_event(event, gh, *args, **kwargs):
 async def main(request):
 	body = await request.read()
 
-	secret = os.environ.get("rhythm")
-	oauth_token = os.environ.get("2b8fe206c743cece6d8cabd81864650200c564e3")
+	secret = os.environ.get("GH_SECRET")
+	oauth_token = os.environ.get("GH_AUTH")
 
 	event = sansio.Event.from_http(request.headers, body, secret=secret)
 	async with aiohttp.ClientSession() as session:
