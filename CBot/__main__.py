@@ -8,7 +8,7 @@ router = routing.Router()
 
 
 @router.register("issue_comment", action="opened")
-async def issue_opened_event(event, gh, *args, **kwargs):
+async def issue_comment_event(event, gh, *args, **kwargs):
 	"""
 	Event when an issue is opened
 	"""
